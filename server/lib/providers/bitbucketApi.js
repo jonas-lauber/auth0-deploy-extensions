@@ -74,50 +74,30 @@ Bitbucket.prototype.buildEndpoint = function buildEndpoint(path, params) {
 };
 
 Bitbucket.prototype.getAll = function getAll(options, callback) {
-  const concurrency = 2;
   const perPage = 100;
-  const result = [];
 
   options.url = options.url + '?pagelen=' + perPage;
 
-  const getTotals = (cb) =>
+  const getPagesRecursively = (result, cb) =>
     this.request(options, (error, data) => {
       if (error) {
         cb(error);
       } else {
         data.values.forEach(item => result.push(item));
-        cb(null, data.size);
+        if (data.next) {
+          options.url = data.next;
+          getPagesRecursively(result, cb);
+        } else {
+          cb(null, result);
+        }
       }
     });
 
-  const getPage = (page, cb) => {
-    const pageOptions = { ...options, url: options.url + '&page=' + (page + 1) };
-    this.request(pageOptions, (error, data) => {
-      if (error) {
-        cb(error);
-      } else {
-        data.values.forEach(item => result.push(item));
-        cb(null);
-      }
-    });
-  };
-
-  return getTotals((err, total) => {
+  return getPagesRecursively([], (err, result) => {
     if (err) {
       return callback(err);
     }
-
-    if (total === 0 || result.length >= total) {
-      return callback(null, result);
-    }
-
-    return async.timesLimit(total, concurrency, getPage, (error) => {
-      if (error) {
-        return callback(error);
-      }
-
-      return callback(null, result);
-    });
+    return callback(null, result);
   });
 };
 
