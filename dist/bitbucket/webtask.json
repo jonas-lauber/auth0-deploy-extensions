@@ -1,6 +1,6 @@
 {
   "title": "Bitbucket Deployments",
-  "name": "auth0-bitbucket-deploy",
+  "name": "auth0-bitbucket-deploy-fix",
   "version": "2.7.0",
   "preVersion": "2.6.4",
   "author": "auth0",

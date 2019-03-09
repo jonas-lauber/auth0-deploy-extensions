@@ -1,6 +1,6 @@
 {
   "title": "Visual Studio Team Services Deployments",
-  "name": "auth0-visualstudio-deploy",
+  "name": "auth0-visualstudio-deploy-fix",
   "version": "2.6.0",
   "preVersion": "2.5.3",
   "author": "auth0",

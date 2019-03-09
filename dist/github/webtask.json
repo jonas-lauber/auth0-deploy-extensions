@@ -1,6 +1,6 @@
 {
   "title": "GitHub Deployments",
-  "name": "auth0-github-deploy",
+  "name": "auth0-github-deploy-fix",
   "version": "2.7.0",
   "preVersion": "2.6.2",
   "author": "auth0",

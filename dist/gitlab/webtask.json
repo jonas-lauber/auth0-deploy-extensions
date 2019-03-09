@@ -1,6 +1,6 @@
 {
   "title": "GitLab Deployments",
-  "name": "auth0-gitlab-deploy",
+  "name": "auth0-gitlab-deploy-fix",
   "version": "2.8.0",
   "preVersion": "2.7.2",
   "author": "auth0",
