@@ -1,5 +1,6 @@
 {
   "title": "Bitbucket Deployments",
+  "codeUrl": "https://raw.githubusercontent.com/jonas-lauber/auth0-deploy-extensions/master/dist/bitbucket/auth0-bitbucket-deploy.extension.2.7.0.js",
   "name": "auth0-bitbucket-deploy-fix",
   "version": "2.7.0",
   "preVersion": "2.6.4",
